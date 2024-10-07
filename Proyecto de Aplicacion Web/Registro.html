@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Graduados</title>
+    <style>  
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        header {
+            background-color: #18bc09;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            max-width: 600px;
+            margin: 30px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px 0;
+        }
+        input, select {
+            padding: 10px;
+            margin-bottom: 10px; /* Reducir el margen inferior */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Para incluir el padding en el tamaño total */
+        }
+        button {
+            background-color: #18bc09;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px; /* Espacio superior para el botón */
+        }
+        button:hover {
+            background-color: #16a40e;
+        }
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Registro de Graduados</h1>
+    </header>
+    <section>
+        <form id="formGraduado">
+            <label for="nombres">Nombres:</label>
+            <input type="text" id="nombres" name="nombres" required>
+            <span id="errorNombres" class="error">Este campo es obligatorio.</span>
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required>
+            <span id="errorApellidos" class="error">Este campo es obligatorio.</span>
+
+            <label for="cedula">C.I:</label>
+            <input type="text" id="cedula" name="cedula" required>
+            <span id="errorCedula" class="error">Este campo es obligatorio.</span>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" required>
+            <span id="errorTelefono" class="error">Este campo es obligatorio.</span>
+
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" required>
+            <span id="errorCorreo" class="error">Por favor ingrese un correo válido.</span>
+
+            <label for="direccion">Dirección de Domicilio:</label>
+            <input type="text" id="direccion" name="direccion" required>
+            <span id="errorDireccion" class="error">Este campo es obligatorio.</span>
+
+            <label for="facultad">Facultad:</label>
+            <input type="text" id="facultad" name="facultad" required>
+            <span id="errorFacultad" class="error">Este campo es obligatorio.</span>
+
+            <label for="carrera">Carrera:</label>
+            <input type="text" id="carrera" name="carrera" required>
+            <span id="errorCarrera" class="error">Este campo es obligatorio.</span>
+
+            <label for="anioGraduacion">Año de Graduación:</label>
+            <input type="number" id="anioGraduacion" name="anioGraduacion" required>
+            <span id="errorAnioGraduacion" class="error">Este campo es obligatorio.</span>
+
+            <label for="nacionalidad">Nacionalidad:</label>
+            <input type="text" id="nacionalidad" name="nacionalidad" required>
+            <span id="errorNacionalidad" class="error">Este campo es obligatorio.</span>
+
+            <label for="paisReside">País donde Reside:</label>
+            <input type="text" id="paisReside" name="paisReside" required>
+            <span id="errorPaisReside" class="error">Este campo es obligatorio.</span>
+
+            <label for="pais">País:</label>
+            <input type="text" id="pais" name="pais" required>
+            <span id="errorPais" class="error">Este campo es obligatorio.</span>
+
+            <label for="provincia">Provincia:</label>
+            <input type="text" id="provincia" name="provincia" required>
+            <span id="errorProvincia" class="error">Este campo es obligatorio.</span>
+
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad" required>
+            <span id="errorCiudad" class="error">Este campo es obligatorio.</span>
+
+            <label for="genero">Género:</label>
+            <select id="genero" name="genero" required>
+                <option value="">Seleccione...</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
+            <span id="errorGenero" class="error">Este campo es obligatorio.</span>
+
+            <label for="estadoCivil">Estado Civil:</label>
+            <select id="estadoCivil" name="estadoCivil" required>
+                <option value="">Seleccione...</option>
+                <option value="soltero">Soltero</option>
+                <option value="casado">Casado</option>
+                <option value="divorciado">Divorciado</option>
+                <option value="viudo">Viudo</option>
+            </select>
+            <span id="errorEstadoCivil" class="error">Este campo es obligatorio.</span>
+
+            <label for="hijos">Hijos:</label>
+            <input type="number" id="hijos" name="hijos" min="0" required>
+            <span id="errorHijos" class="error">Este campo es obligatorio.</span>
+
+            <label for="religion">Religión:</label>
+            <input type="text" id="religion" name="religion" required>
+            <span id="errorReligion" class="error">Este campo es obligatorio.</span>
+
+            <label for="empleo">Empleo:</label>
+            <input type="text" id="empleo" name="empleo" required>
+            <span id="errorEmpleo" class="error">Este campo es obligatorio.</span>
+
+            <button type="submit">Registrar</button>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById('formGraduado').addEventListener('submit', function(event) {
+            let valido = true;
+
+            // Validar campos de texto
+            const campos = [
+                'nombres', 'apellidos', 'cedula', 'telefono', 'correo',
+                'direccion', 'facultad', 'carrera', 'anioGraduacion',
+                'nacionalidad', 'paisReside', 'pais', 'provincia',
+                'ciudad', 'sexo', 'genero', 'estadoCivil', 'hijos', 
+                'religion', 'empleo'
+            ];
+
+            campos.forEach(campo => {
+                const input = document.getElementById(campo);
+                const error = document.getElementById(`error${campo.charAt(0).toUpperCase() + campo.slice(1)}`);
+                if (input.value.trim() === '' || (campo === 'correo' && !/\S+@\S+\.\S+/.test(input.value))) {
+                    error.style.display = 'inline';
+                    valido = false;
+                } else {
+                    error.style.display = 'none';
+                }
+            });
+
+            if (!valido) {
+                event.preventDefault(); // Evitar el envío del formulario si hay errores
+            }
+        });
+    </script>
+</body>
+</html>

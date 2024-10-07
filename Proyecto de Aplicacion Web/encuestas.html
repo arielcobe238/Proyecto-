@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuestas de Seguimiento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        header {
+            background-color: #18bc09;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        ul li {
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #eee;
+            border-radius: 4px;
+        }
+        ul li a {
+            text-decoration: none;
+            color: #18bc09;
+        }
+        ul li:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Encuestas de Seguimiento</h1>
+    </header>
+    <section>
+        <h2>Encuestas Disponibles</h2>
+        <ul>
+            <li><a href="#" id="satisfaccion">Encuesta de Satisfacción Académica</a></li>
+            <li><a href="#" id="empleabilidad">Encuesta de Empleabilidad</a></li>
+            <li><a href="#" id="impacto">Encuesta de Impacto Profesional</a></li>
+        </ul>
+    </section>
+
+    <script>
+        // Simulamos si el usuario está logueado o tiene permiso para acceder a las encuestas
+        let accesoPermitido = false; // Cambia a true si el usuario tiene permiso
+
+        // Función para validar el acceso a las encuestas
+        function validarAccesoEncuesta(event) {
+            if (!accesoPermitido) {
+                event.preventDefault(); // Evita la navegación si no está autorizado
+                alert('Debes tener acceso para completar esta encuesta.');
+            }
+        }
+
+        // Asignamos la validación a los enlaces de las encuestas
+        document.getElementById('satisfaccion').addEventListener('click', validarAccesoEncuesta);
+        document.getElementById('empleabilidad').addEventListener('click', validarAccesoEncuesta);
+        document.getElementById('impacto').addEventListener('click', validarAccesoEncuesta);
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Seguimiento a Graduados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #18bc09;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background-color: #18bc09;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Portal de Seguimiento a Graduados - ULEAM</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="inicio">Inicio</a></li>
+                <li><a href="#" id="registro">Registro de Graduados</a></li>
+                <li><a href="#" id="login">Iniciar Sesión</a></li>
+                <li><a href="#" id="contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2>Bienvenidos</h2>
+        <p>Bienvenido al sistema de seguimiento de graduados. Aquí podrás mantener tu información actualizada y acceder a oportunidades laborales.</p>
+    </section>
+    <footer>
+        <p>© 2024 Universidad Laica Eloy Alfaro de Manabí</p>
+    </footer>
+
+    <script>
+        // Simulamos si el usuario está logueado o no
+        let loggedIn = false; // Esto podría cambiarse dinámicamente
+
+        // Función para validar los enlaces del menú
+        function validarAcceso(event) {
+            const section = event.target.id;
+            if (!loggedIn && (section === 'registro' || section === 'login')) {
+                event.preventDefault(); // Evitar la navegación
+                alert('Debes iniciar sesión para acceder a esta sección.');
+            } else if (section === 'contacto') {
+                alert('Puedes contactarnos al correo: contacto@uleam.edu.ec');
+            }
+        }
+
+        // Agregar eventos de validación para cada enlace del menú
+        document.getElementById('registro').addEventListener('click', validarAcceso);
+        document.getElementById('login').addEventListener('click', validarAcceso);
+        document.getElementById('contacto').addEventListener('click', validarAcceso);
+    </script>
+</body>
+</html>

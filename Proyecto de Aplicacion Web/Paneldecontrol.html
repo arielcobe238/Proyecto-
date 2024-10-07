@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control del Graduado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        header {
+            background-color: #18bc09;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Panel de Graduado - ULEAM</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="miPerfil">Mi Perfil</a></li>
+                <li><a href="#" id="actualizarInfo">Actualizar Información</a></li>
+                <li><a href="#" id="estadisticas">Estadísticas</a></li>
+                <li><a href="#" id="encuestas">Encuestas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <h2 id="welcomeMessage">Bienvenido, [Nombre del Graduado]</h2>
+        <p>Aquí puedes gestionar tu información personal y ver tus estadísticas.</p>
+        <ul>
+            <li><strong>Nombre:</strong> <span id="nombreGraduado">[Nombre del Graduado]</span></li>
+            <li><strong>Carrera:</strong> <span id="carreraGraduado">Tecnologia de la Información</span></li>
+            <li><strong>Año de Graduación:</strong> <span id="anioGraduacion">2022</span></li>
+            <li><strong>Empleo Actual:</strong> <span id="empleoActual">Desarrollador Web en el Banco Pichincha</span></li>
+        </ul>
+    </section>
+
+    <script>
+        // Simulamos si los datos del graduado están disponibles
+        let graduadoDatosDisponibles = true; // Cambia a false para simular datos no disponibles
+
+        // Función para validar el acceso a las secciones
+        function validarAcceso(event) {
+            if (!graduadoDatosDisponibles) {
+                event.preventDefault(); // Evitar la navegación si no hay datos
+                alert('Los datos del graduado no están disponibles. Por favor, actualiza tu información.');
+            }
+        }
+
+        // Asignar eventos de validación a los enlaces del menú
+        document.getElementById('miPerfil').addEventListener('click', validarAcceso);
+        document.getElementById('actualizarInfo').addEventListener('click', validarAcceso);
+        document.getElementById('estadisticas').addEventListener('click', validarAcceso);
+        document.getElementById('encuestas').addEventListener('click', validarAcceso);
+
+        // Ejemplo de cómo cargar el nombre del graduado
+        const nombreGraduado = 'Ariel Cobeña'; // Aquí puedes cargar el nombre real del graduado
+        document.getElementById('nombreGraduado').textContent = nombreGraduado;
+        document.getElementById('welcomeMessage').textContent = `Bienvenido, ${nombreGraduado}`;
+    </script>
+</body>
+</html>
